@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html ng-app="Webinar">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+    <title>Webinar</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/styles.css" media="screen" title="no title" charset="utf-8">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-cookies.js"></script>
+    <script src="/js/app.js" type="text/javascript"></script>
+    <script src="/js/init.js"></script>
+
+
+</head>
+<body>
+
+
+    <section ng-controller='UsersController'>
+
+      <!-- NAVIGATION -->
+
+      <nav class="red" role="navigation">
+        <div class="nav-wrapper container">
+          <a id="logo-container" href="#" class="brand-logo">thisVsThat</a>
+
+          <ul class="right hide-on-med-and-down">
+
+
+
+            <!-- LOGOUT -->
+            <li ng-show="token" class="Log-Out">
+              <button class="waves-effect waves-light btn-flat"
+                type="button" ng-click="logOut()" name="button">LogOut
+              </button>
+            </li>
+            <!-- SIGN UP -->
+            <li ng-hide="token" class="sign-up">
+              <a class="waves-effect waves-light btn-flat modal-trigger" href="#modal1">Sign Up
+              </a>
+            </li>
+            <!-- LOG IN -->
+            <li ng-hide="token" class="log-in">
+              <a class="waves-effect waves-light btn-flat modal-trigger" href="#modal2">Log In
+              </a>
+            </li>
+
+            <!-- FAQ -->
+            <li  class="faq-link">
+              <a class="waves-effect waves-light btn-flat" href="#faq">FAQ
+              </a>
+            </li>
+
+            <!-- MODAL FOR SIGN UP -->
+            <div id="modal1" class="modal grey">
+              <div class="modal-content">
+                <h4 >Sign Up</h4>
+                <form ng-submit="createUser()">
+                  <input type="text" ng-model="newUser.username" placeholder="...username">
+                  <input type="password" ng-model="newUser.password" placeholder="...password">
+                  <input class="modal-action modal-close waves-effect waves-red btn-flat" type="submit">
+                </form>
+              </div>
+            </div>
+
+            <!-- MODAL FOR LOG IN -->
+            <div id="modal2" class="modal grey">
+              <div class="modal-content">
+                <h4>Log In</h4>
+                <form ng-submit="obtainToken()">
+                  <input type="text" ng-model="logInUser.username" placeholder="...username">
+                  <input type="password" ng-model="logInUser.password" placeholder="...password">
+                  <input class="modal-action modal-close waves-effect waves-red btn-flat" type="submit">
+                </form>
+             </div>
+            </div>
+
+
+
+            </div>
+          </nav>
+
+
+
+
+
+
+
+<div class="container" id='faq'>
+    <hr>
+
+  <h4 class="center">Frequently Asked Questions</h4>
+
+  <ul class="collapsible" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header">Why can't I add my own webinars?</div>
+      <div class="collapsible-body"><p>We are taking a manual approach to keep the data clean and site usable for the time being. </p></div>
+    </li>
+    <li>
+      <div class="collapsible-header">What is the point of all this? I can just google.</div>
+      <div class="collapsible-body"><p> A lot of people do not have time to go into deeper reviews and would just like to see endorsements in numbers. This is a site for those.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header">How do I submit a webinar?</div>
+      <div class="collapsible-body"><p>Send an email to viditsax@gmail.com</p></div>
+    </li>
+  </ul>
+
+</div>
+
+
+
+
+
+</body>
+</html>
