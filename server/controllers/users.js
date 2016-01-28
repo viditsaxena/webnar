@@ -13,9 +13,9 @@ var express  =  require('express'),
 
 
     usersRouter.post('/authentication_token', function(req, res){
-      var username = req.body.username;
+      var email = req.body.email;
       var password = req.body.password;
-      User.findOne({username: username}, function(err, user){
+      User.findOne({email: email}, function(err, user){
         user.authenticate(password, function(isMatch){
           if(isMatch){
             user.generateToken();

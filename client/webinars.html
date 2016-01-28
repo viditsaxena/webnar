@@ -1,0 +1,14 @@
+    <div class="container form-section">
+
+
+        <div class="list-group">
+          <a href="#" class="list-group-item" ng-repeat="webinar in webinars">
+            <h4 class="list-group-item-heading">{{ webinar.title }}</h4>
+            <br>
+            <p class="list-group-item-text">{{ webinar.description }}</p>
+            <br>
+            <h6 class="list-group-item-footnote">{{ webinar.date | date : 'fullDate' }} at {{ webinar.time | date : 'shortTime' }}</h6>
+          </a>
+        </div>
+
+    </div> <!-- /container -->

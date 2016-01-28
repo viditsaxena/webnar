@@ -23,9 +23,17 @@ webinarApp.config(function($routeProvider){
       templateUrl: './create.html',
       controller: 'mainController'
     })
+    .when('/webinars', {
+      templateUrl: './webinars.html',
+      controller: 'mainController'
+    })
+    .when('/show', {
+      templateUrl: './show.html',
+      controller: 'mainController'
+    })
 });
 
-webinarApp.controller('mainController', ['$scope', '$http', '$cookies', '$location', function($scope, $http, $cookies, $location){
+webinarApp.controller('mainController', ['$scope', '$rootScope', '$http', '$cookies', '$location', function($scope, $rootScope, $http, $cookies, $location){
 
   $scope.welcomeMessage = '';
   $scope.users = [];
@@ -36,7 +44,7 @@ webinarApp.controller('mainController', ['$scope', '$http', '$cookies', '$locati
   $scope.webinars = [];
   $scope.newWebinar = {};
   $scope.isDisabled = false;
-  $scope.token;
+  $rootScope.token;
 
 
   // ============== Users ================
@@ -59,24 +67,24 @@ webinarApp.controller('mainController', ['$scope', '$http', '$cookies', '$locati
 
   $scope.obtainToken = function(){
     $http.post("/api/users/authentication_token", $scope.logInUser).then(function(reponse){
-      $scope.token = reponse.data.token;
-      console.log($scope.token);
-      $cookies.put('token', $scope.token);
+      $rootScope.token = reponse.data.token;
+      console.log($rootScope.token);
+      $cookies.put('token', $rootScope.token);
       $location.path('/')
     });
   };
 
   $scope.logOut = function(){
     $cookies.remove('token');
-    $scope.token = $cookies.get('token');
+    $rootScope.token = $cookies.get('token');
     $scope.logInUser = {};
   };
 
-  $scope.token = $cookies.get('token');
+  $rootScope.token = $cookies.get('token');
 
 
 // angular.module('Webinar').controller('WebinarsController', ['$scope', '$http', '$cookies', function($scope, $http, $cookies){
-//   $scope.token = $cookies.get('token');
+//   $rootScope.token = $cookies.get('token');
 
   $scope.getWebinars = function(){
     $http.get('/api/webinars').then(function(response){

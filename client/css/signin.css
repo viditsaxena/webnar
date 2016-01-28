@@ -1,3 +1,36 @@
+.webinar-section {
+    padding-top: 90px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.webinar-section p {
+    color: black;
+}
+.caption-full h4{
+  color:rgb(65,61,160)
+}
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+footer {
+    margin: 50px 0;
+}
+
 .form-section {
   margin-top: 10%;
   padding-top: 40px;
@@ -46,4 +79,8 @@
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.list-group-item-text {
+  color: black;
 }
