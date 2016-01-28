@@ -32,8 +32,9 @@ var express  =  require('express'),
     // Create a new user and return as json for POST to '/api/users'
     usersRouter.post('/', function (req, res) {
       var user = new User(req.body);
-      user.save(function(){
+      user.save(function(){ //pre-save hook will be run before user gets saved. See user model.
         res.json(user);
+
       });
     });
 

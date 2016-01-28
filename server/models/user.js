@@ -7,9 +7,12 @@ var mongoose    =    require('mongoose'),
 
     // Schema for the model
     var UserSchema = new mongoose.Schema({
-      username: {type: String, required: true },
-      password: {type: String},
       email: {type: String},
+      password: {type: String},
+      firstName: {type: String},
+      lastName: {type: String},
+      bio: {type: String},
+      profileImage: {type: String},
       token: {type: String}
     });
 

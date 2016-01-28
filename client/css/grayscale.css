@@ -91,7 +91,7 @@ a:focus {
 }
 
 .navbar-custom a {
-    color: #fff;
+    color: darkgrey;
 }
 
 .navbar-custom .nav li a {
@@ -121,7 +121,7 @@ a:focus {
 }
 
 .navbar-custom .nav li.active a:hover {
-    color: #fff;
+    color: red;
 }
 
 @media(min-width:768px) {
@@ -178,9 +178,11 @@ a:focus {
 @media(min-width:768px) {
     .intro {
         height: 100%;
-        padding: 0;
+        padding-top: 40%: ;
     }
-
+    .intro-body{
+      padding-top: 50px;
+    }
     .intro .intro-body .brand-heading {
         font-size: 100px;
     }
@@ -355,8 +357,8 @@ a:focus {
 .btn-default:hover,
 .btn-default:focus {
     border: 1px solid #42dca3;
-    outline: 0;
-    color: #000;
+    outline: black;
+    color: black;
     background-color: #42dca3;
 }
 
@@ -382,6 +384,9 @@ ul.banner-social-buttons {
     }
     .flip-container {
       margin: 8px auto;
+    }
+    .intro-body{
+      padding-top: 50px;
     }
 }
 

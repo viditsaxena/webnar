@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="webinarApp">
 
 <head>
 
@@ -16,8 +16,13 @@
     <link href="css/animate.css" rel="stylesheet" type="text/css">
 
 
+
+
     <!-- Custom CSS -->
     <link href="css/grayscale.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -31,9 +36,13 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="https://code.angularjs.org/1.4.9/angular.js"></script>
+    <script src="https://code.angularjs.org/1.4.9/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-cookies.js"></script>
+
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" ng-controller="mainController" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -42,7 +51,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
+                <a class="navbar-brand page-scroll" href="#/">
                     <i class="fa fa-play-circle"></i>  <span class="light">Webnar</span>
                 </a>
             </div>
@@ -57,12 +66,19 @@
                     <li>
                         <a class="page-scroll" href="#about">Webinars</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#download">Login</a>
+                    <li ng-hide="token">
+                        <a class="page-scroll" href="#/login">Login</a>
                     </li>
-                    <li>
-                        <a class="page-scroll btn btn-default " href="#contact">Sign Up</a>
+                    <li ng-show="token">
+                        <a class="page-scroll " href="#/create">Add a webinar</a>
                     </li>
+                    <li ng-hide="token">
+                        <a class="page-scroll btn btn-default " href="#/signup">Sign Up</a>
+                    </li>
+                    <li ng-show="token" >
+                      <a class="page-scroll btn btn-default" ng-click="logOut()">Logout</a>
+                    </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -70,246 +86,7 @@
         <!-- /.container -->
     </nav>
 
-    <!-- Intro Header -->
-    <header class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                  <br><br>
-                    <div class="col-md-8 col-md-offset-2">
-                        <!-- <h4 class="brand-heading">Join a Webinar</h4> -->
-                        <p class="intro-text">The only platform where you can learn from experts, for free.</p>
-                        <br><br><br><br>
-                        <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-down animated"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- How it Works -->
-    <!-- <section id="brief" class="text-center">
-        <div class="brief-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Introducing..</h2>
-                    <p> The directory of webinars   </p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-
-  <section id="about" class="container content-section text-center">
-        <!-- <div class="container"> -->
-          <!-- Page Header -->
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">Find a Webinar
-            </h1>
-        </div>
-    </div>
-          <!-- /.row -->
-
-          <!-- Projects Row -->
-    <div class="row">
-            <div class="flip-container col-md-4 portfolio-item" ontouchstart="this.classList.toggle('hover');">
-          	   <div class="flipper">
-          		     <div class="front">
-          			<!-- front content -->
-                      <h3>
-                        <a href="#">Project Name</a>
-                      </h3>
-          		     </div>
-              		 <div class="back">
-              			<!-- back content -->
-                      <p>Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                        Nam viverra euismod odio,
-                        gravida pellentesque urna varius vitae.</p>
-              	 	 </div>
-          	  </div>
-           </div>
-           <div class="flip-container col-md-4 portfolio-item" ontouchstart="this.classList.toggle('hover');">
-             <div class="flipper">
-                 <div class="front">
-              <!-- front content -->
-                    <h3>
-                      <a href="#">Project Name</a>
-                    </h3>
-                 </div>
-                 <div class="back">
-                  <!-- back content -->
-                    <p>Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit.
-                      Nam viverra euismod odio,
-                      gravida pellentesque urna varius vitae.</p>
-                 </div>
-            </div>
-          </div>
-          <div class="flip-container col-md-4 portfolio-item" ontouchstart="this.classList.toggle('hover');">
-           <div class="flipper">
-               <div class="front">
-            <!-- front content -->
-                  <h3>
-                    <a href="#">Project Name</a>
-                  </h3>
-               </div>
-               <div class="back">
-                <!-- back content -->
-                  <p>Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit.
-                    Nam viverra euismod odio,
-                    gravida pellentesque urna varius vitae.</p>
-               </div>
-            </div>
-         </div>
-    </div>
-    <div class="row">
-            <div class="flip-container col-md-4 portfolio-item" ontouchstart="this.classList.toggle('hover');">
-          	   <div class="flipper">
-          		     <div class="front">
-          			<!-- front content -->
-                      <h3>
-                        <a href="#">Project Name</a>
-                      </h3>
-          		     </div>
-              		 <div class="back">
-              			<!-- back content -->
-                      <p>Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                        Nam viverra euismod odio,
-                        gravida pellentesque urna varius vitae.</p>
-              	 	 </div>
-          	  </div>
-           </div>
-           <div class="flip-container col-md-4 portfolio-item" ontouchstart="this.classList.toggle('hover');">
-             <div class="flipper">
-                 <div class="front">
-              <!-- front content -->
-                    <h3>
-                      <a href="#">Project Name</a>
-                    </h3>
-                 </div>
-                 <div class="back">
-                  <!-- back content -->
-                    <p>Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit.
-                      Nam viverra euismod odio,
-                      gravida pellentesque urna varius vitae.</p>
-                 </div>
-            </div>
-          </div>
-          <div class="flip-container col-md-4 portfolio-item" ontouchstart="this.classList.toggle('hover');">
-           <div class="flipper">
-               <div class="front">
-            <!-- front content -->
-                  <h3>
-                    <a href="#">Project Name</a>
-                  </h3>
-               </div>
-               <div class="back">
-                <!-- back content -->
-                  <p>Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit.
-                    Nam viverra euismod odio,
-                    gravida pellentesque urna varius vitae.</p>
-               </div>
-            </div>
-         </div>
-    </div>
-    <div class="row">
-            <div class="flip-container col-md-4 portfolio-item" ontouchstart="this.classList.toggle('hover');">
-          	   <div class="flipper">
-          		     <div class="front">
-          			<!-- front content -->
-                      <h3>
-                        <a href="#">Project Name</a>
-                      </h3>
-          		     </div>
-              		 <div class="back">
-              			<!-- back content -->
-                      <p>Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                        Nam viverra euismod odio,
-                        gravida pellentesque urna varius vitae.</p>
-              	 	 </div>
-          	  </div>
-           </div>
-           <div class="flip-container col-md-4 portfolio-item" ontouchstart="this.classList.toggle('hover');">
-             <div class="flipper">
-                 <div class="front">
-              <!-- front content -->
-                    <h3>
-                      <a href="#">Project Name</a>
-                    </h3>
-                 </div>
-                 <div class="back">
-                  <!-- back content -->
-                    <p>Lorem ipsum dolor sit amet,
-                      consectetur adipiscing elit.
-                      Nam viverra euismod odio,
-                      gravida pellentesque urna varius vitae.</p>
-                 </div>
-            </div>
-          </div>
-          <div class="flip-container col-md-4 portfolio-item" ontouchstart="this.classList.toggle('hover');">
-           <div class="flipper">
-               <div class="front">
-            <!-- front content -->
-                  <h3>
-                    <a href="#">Project Name</a>
-                  </h3>
-               </div>
-               <div class="back">
-                <!-- back content -->
-                  <p>Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit.
-                    Nam viverra euismod odio,
-                    gravida pellentesque urna varius vitae.</p>
-               </div>
-            </div>
-         </div>
-    </div>
-</section>
-
-          <hr>
-
-          <!-- Pagination -->
-          <div class="row text-center">
-              <div class="col-lg-12">
-                  <ul class="pagination">
-                      <li>
-                          <a href="#">&laquo;</a>
-                      </li>
-                      <li class="active">
-                          <a href="#">1</a>
-                      </li>
-                      <li>
-                          <a href="#">2</a>
-                      </li>
-                      <li>
-                          <a href="#">3</a>
-                      </li>
-                      <li>
-                          <a href="#">4</a>
-                      </li>
-                      <li>
-                          <a href="#">5</a>
-                      </li>
-                      <li>
-                          <a href="#">&raquo;</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-          <!-- /.row -->
-
-          <hr>
-</div> <!-- container end -->
-
+<div ng-view ></div>
     <!-- Footer -->
     <footer>
         <div class="container text-center">
@@ -326,11 +103,12 @@
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
 
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
+
+    <script src="js/app.js"></script>
+
 
 
 

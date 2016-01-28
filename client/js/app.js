@@ -1,11 +1,33 @@
   console.log('app.js is loaded');
 
 
-angular.module('Webinar', ['ngCookies']);
+var webinarApp = angular.module('webinarApp', ['ngCookies', 'ngRoute']);
 
-angular.module('Webinar').controller('UsersController', ['$scope', '$http', '$cookies', function($scope, $http, $cookies){
+webinarApp.config(function($routeProvider){
 
-  $scope.welcomeMessage = 'Hello from Angular';
+    $routeProvider
+
+    .when('/', {
+      templateUrl: './home.html',
+      controller: 'mainController'
+    })
+    .when('/signup', {
+      templateUrl: './signup.html',
+      controller: 'mainController'
+    })
+    .when('/login', {
+      templateUrl: './login.html',
+      controller: 'mainController'
+    })
+    .when('/create', {
+      templateUrl: './create.html',
+      controller: 'mainController'
+    })
+});
+
+webinarApp.controller('mainController', ['$scope', '$http', '$cookies', '$location', function($scope, $http, $cookies, $location){
+
+  $scope.welcomeMessage = '';
   $scope.users = [];
   $scope.searchQuery = "";
   $scope.orderByField = 'name';
@@ -14,6 +36,7 @@ angular.module('Webinar').controller('UsersController', ['$scope', '$http', '$co
   $scope.webinars = [];
   $scope.newWebinar = {};
   $scope.isDisabled = false;
+  $scope.token;
 
 
   // ============== Users ================
@@ -27,16 +50,19 @@ angular.module('Webinar').controller('UsersController', ['$scope', '$http', '$co
 
   $scope.createUser = function(){
     $http.post('/api/users', $scope.newUser).then(function(response){
+      console.log(response.data)
       $scope.users.push(response.data);
       $scope.newUser = {};
+      $location.path('/login');
     });
   };
 
   $scope.obtainToken = function(){
     $http.post("/api/users/authentication_token", $scope.logInUser).then(function(reponse){
       $scope.token = reponse.data.token;
+      console.log($scope.token);
       $cookies.put('token', $scope.token);
-
+      $location.path('/')
     });
   };
 
