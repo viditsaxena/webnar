@@ -43,9 +43,9 @@ webinarApp.controller('mainController', ['$scope', '$rootScope', '$http', '$cook
   $scope.logInUser = {};
   $scope.webinars = [];
   $scope.newWebinar = {};
+  $rootScope.showWebinar;
   $scope.isDisabled = false;
   $rootScope.token;
-
 
   // ============== Users ================
 
@@ -83,8 +83,6 @@ webinarApp.controller('mainController', ['$scope', '$rootScope', '$http', '$cook
   $rootScope.token = $cookies.get('token');
 
 
-// angular.module('Webinar').controller('WebinarsController', ['$scope', '$http', '$cookies', function($scope, $http, $cookies){
-//   $rootScope.token = $cookies.get('token');
 
   $scope.getWebinars = function(){
     $http.get('/api/webinars').then(function(response){
@@ -104,10 +102,22 @@ webinarApp.controller('mainController', ['$scope', '$rootScope', '$http', '$cook
       $scope.newWebinar = {};
     });
   };
+  $scope.getOneWebinar = function(webinar){
+    var url = '/api/webinars/' + webinar._id;
 
-  // $scope.addItem = function(){
-  //   $scope.newWebinar.items.push({});
-  // };
+    $http.get(url).then(function(response){
+      console.log(response.data);
+      $rootScope.showWebinar = response.data;
+      // console.log($rootScope.showWebinar);
+      $cookies.putObject('webinar', $rootScope.showWebinar);
+      $location.path('/show');
+      // console.log($cookies.get('webinar'));
+      });
+  };
+
+  // $rootScope.showWebinar = $cookies.get('webinar');
+
+
 
   $scope.removeWebinar = function(webinar){
         var url = '/api/webinars/' + webinar._id;

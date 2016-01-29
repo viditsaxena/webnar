@@ -14,6 +14,14 @@ WebinarsController.get('/', function(req, res){
   });
 });
 
+WebinarsController.get('/:id', function(req, res){
+  Webinar.findOne(req.params.id, function(err, webinar){
+    res.json(webinar);
+  });
+});
+
+
+
 WebinarsController.delete('/:id', function(req, res){
   var id = req.params.id;
   Webinar.findByIdAndRemove(id, function(){

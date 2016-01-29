@@ -2,7 +2,7 @@
 
 
         <div class="list-group">
-          <a href="#" class="list-group-item" ng-repeat="webinar in webinars">
+          <a href="#" class="list-group-item" ng-click="getOneWebinar(webinar)" ng-repeat="webinar in webinars">
             <h4 class="list-group-item-heading">{{ webinar.title }}</h4>
             <br>
             <p class="list-group-item-text">{{ webinar.description }}</p>
