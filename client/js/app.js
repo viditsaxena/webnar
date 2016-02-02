@@ -43,9 +43,10 @@ webinarApp.controller('mainController', ['$scope', '$rootScope', '$http', '$cook
   $scope.logInUser = {};
   $scope.webinars = [];
   $scope.newWebinar = {};
-  $rootScope.showWebinar;
+  $rootScope.showWebinar = $cookies.getObject('webinar');
   $scope.isDisabled = false;
   $rootScope.token;
+  console.log($cookies.getObject('webinar'));
 
   // ============== Users ================
 
@@ -108,7 +109,7 @@ webinarApp.controller('mainController', ['$scope', '$rootScope', '$http', '$cook
     $http.get(url).then(function(response){
       console.log(response.data);
       $rootScope.showWebinar = response.data;
-      // console.log($rootScope.showWebinar);
+      console.log($rootScope.showWebinar);
       $cookies.putObject('webinar', $rootScope.showWebinar);
       $location.path('/show');
       // console.log($cookies.get('webinar'));
@@ -117,7 +118,7 @@ webinarApp.controller('mainController', ['$scope', '$rootScope', '$http', '$cook
   // var token = "xxx";
   // localStorage.setItem("token", token);
   // localStorage.getItem("token"); //returns "xxx"
-  // $rootScope.showWebinar = $cookies.get('webinar');
+  // $rootScope.showWebinar = $cookies.getObject('webinar');
 
 
 
