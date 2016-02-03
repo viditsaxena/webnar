@@ -1,5 +1,7 @@
   console.log('app.js is loaded');
 
+  
+
 
 var webinarApp = angular.module('webinarApp', ['ngCookies', 'ngRoute']);
 
