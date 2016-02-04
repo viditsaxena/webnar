@@ -84,7 +84,47 @@
 
 <br>
           <div >
-              <a class="btn btn-success center-block">Take This Webinar</a>
+
+            <button type="button" class="btn btn-primary btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+              Take this Webinar
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Take this Webinar</h4>
+                    <p>
+                      As soon as we recieve your contact info below,
+                      we will send you an email with instructions on how to join this webinar.
+                    </p>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-inline" action="//formspree.io/viditsax@gmail.com"
+                          method="POST">
+                          <div class="form-group">
+                            <label for="inputRegisterName" class="sr-only">Name</label>
+                            <input type="text" class="form-control" id="inputRegisterName" placeholder="Full Name" name="name">
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only">Email</label>
+                             <input type="email" class="form-control" name="_replyto" id="inputRegisterEmail" placeholder="Email">
+                           </div>
+
+                        <input class="btn btn-primary" type="submit" value="Send">
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <p class="pull-left">
+                      Your contact info is safe with us. We will not release it any other entities.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
