@@ -1,5 +1,8 @@
   console.log('app.js is loaded');
 
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
 
 
 
@@ -91,6 +94,7 @@ webinarApp.controller('mainController', ['$scope', '$rootScope', '$http', '$cook
     $cookies.remove('token');
     $rootScope.token = $cookies.get('token');
     $scope.logInUser = {};
+    $location.path('/')
   };
 
   $rootScope.token = $cookies.get('token');
