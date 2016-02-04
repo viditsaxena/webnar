@@ -191,7 +191,9 @@ a:focus {
         font-size: 26px;
     }
 }
-
+.btn {
+  background-color: rgb(65,61,160);
+}
 .btn-circle {
     width: 70px;
     height: 70px;
@@ -355,7 +357,7 @@ a:focus {
 
 .btn-default {
     border: 1px solid rgb(65,61,160);
-    color: #42dca3;
+    color: rgb(65,61,160);
     background-color: transparent;
 }
 
@@ -364,7 +366,7 @@ a:focus {
     border: 1px solid #42dca3;
     outline: black;
     color: black;
-    background-color: #42dca3;
+    background-color: rgb(65,61,160);
 }
 
 ul.banner-social-buttons {
