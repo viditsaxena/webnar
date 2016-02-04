@@ -63,8 +63,18 @@ webinarApp.controller('mainController', ['$scope', '$rootScope', '$http', '$cook
     $http.post('/api/users', $scope.newUser).then(function(response){
       console.log(response.data)
       $scope.users.push(response.data);
+      // $scope.newUser = {};
+      $scope.instantLogin();
+      // $location.path('/login');
+    });
+  };
+  $scope.instantLogin = function(){
+    $http.post("/api/users/authentication_token", $scope.newUser).then(function(reponse){
+      $rootScope.token = reponse.data.token;
+      console.log($rootScope.token);
+      $cookies.put('token', $rootScope.token);
       $scope.newUser = {};
-      $location.path('/login');
+      $location.path('/')
     });
   };
 
