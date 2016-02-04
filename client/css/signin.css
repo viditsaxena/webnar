@@ -37,6 +37,9 @@ footer {
   padding-bottom: 40px;
   background-color: #eee;
 }
+.help-block p{
+  color: black;
+}
 .form-webinar label{
   color: black;
 }

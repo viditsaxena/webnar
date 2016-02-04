@@ -1,9 +1,9 @@
   console.log('app.js is loaded');
 
-  
 
 
-var webinarApp = angular.module('webinarApp', ['ngCookies', 'ngRoute']);
+
+var webinarApp = angular.module('webinarApp', ['ngCookies', 'ngRoute', 'ngMessages']);
 
 webinarApp.config(function($routeProvider){
 
@@ -117,10 +117,7 @@ webinarApp.controller('mainController', ['$scope', '$rootScope', '$http', '$cook
       // console.log($cookies.get('webinar'));
       });
   };
-  // var token = "xxx";
-  // localStorage.setItem("token", token);
-  // localStorage.getItem("token"); //returns "xxx"
-  // $rootScope.showWebinar = $cookies.getObject('webinar');
+
 
 
 
