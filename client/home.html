@@ -2,32 +2,40 @@
 <header class="intro">
     <div class="intro-body">
         <div class="container">
+          <br><br>
             <div class="row">
               <br><br>
                 <div class="col-md-8 col-md-offset-2">
                     <!-- <h4 class="brand-heading">Join a Webinar</h4> -->
-                    <p class="intro-text">The only platform where you can learn from experts, for free.</p>
+                    <p class="intro-text">Find a webinar of your choice and attend it, for free.</p>
                     <br><br><br><br>
-                    <a href="#about" class="btn btn-circle page-scroll">
+                    <!-- <a href="#about" class="btn btn-circle page-scroll">
                         <i class="fa fa-angle-down animated"></i>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
     </div>
 </header>
 <!-- How it Works -->
-<!-- <section id="brief" class="text-center">
+<section id="brief" class="text-center">
     <div class="brief-section">
         <div class="container">
             <div class="col-lg-8 col-lg-offset-2">
+              <br><br>
                 <h2>Introducing..</h2>
-                <p> The directory of webinars   </p>
-                <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+                <br><br>
+                <p> A knowledge marketplace, where users who are looking to learn more about any topic can do so in a quick fashion
+                via webinars organized by thought leaders and domain experts. Choose from a range of topics like product management,
+              User Experience Design, Web Development, Entrepreneurship and across different industries like Healthcare, Data, Finance,
+            technology, startups etc. </p>
+            <br>
+            <br>
             </div>
+            <br>
         </div>
     </div>
-</section> -->
+</section>
 
 
 <section id="about" class="container content-section text-center">
@@ -35,65 +43,33 @@
       <!-- Page Header -->
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Find a Webinar
-        </h1>
+        <h2 class="page-header">Find a Webinar
+        </h2>
     </div>
 </div>
       <!-- /.row -->
 
       <!-- Projects Row -->
-<div class="row" >
-        <div class="flip-container col-md-4 portfolio-item" ng-repeat="webinar in webinars" ontouchstart="this.classList.toggle('hover');">
-           <div class="flipper">
-               <div class="front">
-            <!-- front content -->
-                  <h3>
-                    {{ webinar.title }}
-                  </h3>
-               </div>
-               <div class="back">
-                <!-- back content -->
-                  <p>Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit.
-                    Nam viverra euismod odio,
-                    gravida pellentesque urna varius vitae.</p>
-                    <a href="#" ng-click="getOneWebinar(webinar)" class="btn btn-default center">Learn more</a>
-               </div>
-          </div>
-       </div>
-</div>
-</section>
+      <div class="container">
 
-      <hr>
-
-      <!-- Pagination -->
-      <div class="row text-center">
-          <div class="col-lg-12">
-              <ul class="pagination">
-                  <li>
-                      <a href="#">&laquo;</a>
-                  </li>
-                  <li class="active">
-                      <a href="#">1</a>
-                  </li>
-                  <li>
-                      <a href="#">2</a>
-                  </li>
-                  <li>
-                      <a href="#">3</a>
-                  </li>
-                  <li>
-                      <a href="#">4</a>
-                  </li>
-                  <li>
-                      <a href="#">5</a>
-                  </li>
-                  <li>
-                      <a href="#">&raquo;</a>
-                  </li>
-              </ul>
-          </div>
+      <div class="row" >
+              <div class="flip-container col-md-4" ng-repeat="webinar in webinars" ontouchstart="this.classList.toggle('hover');">
+                 <div class="flipper">
+                     <div class="front">
+                  <!-- front content -->
+                        <h3>
+                          {{ webinar.title }}
+                        </h3>
+                     </div>
+                     <div class="back">
+                      <!-- back content -->
+                        <p>{{ webinar.description | limitTo: 100 }}</p>
+                          <a href="#" ng-click="getOneWebinar(webinar)" class="btn btn-default center">Learn more</a>
+                     </div>
+                </div>
+             </div>
       </div>
-      <!-- /.row -->
+    </div>
+</section>
 
       <hr>

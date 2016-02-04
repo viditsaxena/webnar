@@ -175,6 +175,10 @@ a:focus {
     font-size: 18px;
 }
 
+.intro-text {
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 @media(min-width:768px) {
     .intro {
         height: 100%;
@@ -284,8 +288,8 @@ a:focus {
 
 /* entire container, keeps perspective */
 .flip-container {
-	perspective: 1000;
-  margin-right: 30px;
+	/*perspective: 1000;*/
+  margin: 10px;
   background-color: rgb(65,61,160);
   margin-bottom: 20px;
 
@@ -312,7 +316,7 @@ a:focus {
 	backface-visibility: hidden;
 
 	position: absolute;
-  text-align: center;
+  /*text-align: center;*/
 	/*top: 0;
 	left: 0;*/
 
@@ -331,10 +335,15 @@ a:focus {
 }
 .front h3{
   margin-top: 40%;
+  margin-right: 8%;
 }
 .back p{
-  margin-left: 15%;
-  margin-top: 30%;
+  margin-left: 10%;
+  margin-top: 33%;
+}
+.back a{
+  margin-left: 11%;
+  /*margin-top: 33%;*/
 }
 
 @media(min-width:767px) {
@@ -403,6 +412,7 @@ footer {
 
 footer p {
     margin: 0;
+    color: black;
 }
 
 ::-moz-selection {
