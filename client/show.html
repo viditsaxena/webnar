@@ -105,14 +105,7 @@
                     <form class="form-inline" action="//formspree.io/viditsax@gmail.com"
                           method="POST">
                           <div class="container">
-                          <div class="row">
-                            <div class="form-group hidden">
-                             <label class="col-sm-2  control-label">Title</label>
-                              <div class="col-sm-10">
-                               <p class="form-control-static ">{{ showWebinar.title}}</p>
-                              </div>
-                            </div>
-                           </div>
+                    
                          <div class="row">
                           <div class="form-group offset-col-sm-2">
                             <label for="inputRegisterName" class="sr-only">Name</label>
@@ -122,7 +115,8 @@
                             <label class="sr-only">Email</label>
                              <input type="email" class="form-control" name="_replyto" id="inputRegisterEmail" placeholder="Email">
                            </div>
-
+                        <input type="hidden" value="{{ showWebinar.title }}" />
+                        <input type="hidden" name="_next" value="http://www.webnar.tk" />
                         <input class="btn btn-primary" type="submit" value="Send">
                         </div>
                         </div>
