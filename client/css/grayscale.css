@@ -288,7 +288,7 @@ a:focus {
 
 /* entire container, keeps perspective */
 .flip-container {
-	/*perspective: 1000;*/
+	perspective: 1000;
   margin: 10px;
   background-color: rgb(65,61,160);
   margin-bottom: 20px;
