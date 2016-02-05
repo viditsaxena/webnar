@@ -120,6 +120,7 @@ webinarApp.controller('mainController', ['$scope', '$rootScope', '$http', '$cook
     });
   };
   $scope.getOneWebinar = function(webinar){
+    $cookies.remove('webinar');
     var url = '/api/webinars/' + webinar._id;
 
     $http.get(url).then(function(response){
