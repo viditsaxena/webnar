@@ -296,6 +296,8 @@ a:focus {
 }
 	/* flip the pane when hovered */
 	.flip-container:hover .flipper, .flip-container.hover .flipper {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
 		transform: rotateY(180deg);
 	}
 
@@ -326,13 +328,18 @@ a:focus {
 .front {
 	z-index: 2;
 	/* for firefox 31 */
-	transform: rotateY(0deg);
+	-webkit-transform: rotateY(0deg);
+      -ms-transform: rotateY(0deg);
+          transform: rotateY(0deg);
 }
 
 /* back, initially hidden pane */
 .back {
-	transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+      -ms-transform: rotateY(180deg);
+	         transform: rotateY(180deg);
 }
+
 .front h3{
   margin-top: 40%;
   margin-right: 8%;
@@ -403,29 +410,6 @@ ul.banner-social-buttons {
     }
     .intro-body{
       padding-top: 50px;
-    }
-
-    /* hide back of pane during swap */
-    .front, .back {
-    	backface-visibility: hidden;
-
-    	position: absolute;
-      /*text-align: center;*/
-    	top: 0;
-    	left: 0;
-
-    }
-
-    /* front pane, placed above back */
-    .front {
-    	z-index: 2;
-    	/* for firefox 31 */
-    	transform: rotateY(0deg);
-    }
-
-    /* back, initially hidden pane */
-    .back {
-    	transform: rotateY(180deg);
     }
 }
 
