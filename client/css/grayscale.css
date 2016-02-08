@@ -50,7 +50,6 @@ p {
 a {
     color: white;
     -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
 
@@ -96,7 +95,6 @@ a:focus {
 
 .navbar-custom .nav li a {
     -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
     transition: background .3s ease-in-out;
 }
 
@@ -131,7 +129,6 @@ a:focus {
         letter-spacing: 1px;
         background: 0 0;
         -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
-        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
         transition: background .5s ease-in-out,padding .5s ease-in-out;
     }
 
@@ -150,14 +147,18 @@ a:focus {
     text-align: center;
     color: #fff;
     background:
+    -webkit-linear-gradient(
+      rgba(0, 0, 255, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+    background:
     linear-gradient(
       rgba(0, 0, 255, 0.45),
       rgba(0, 0, 0, 0.45)
     ),
     url(../img/intro-bg.jpg) no-repeat bottom center scroll;
     background-color: #000;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
@@ -182,7 +183,7 @@ a:focus {
 @media(min-width:768px) {
     .intro {
         height: 100%;
-        padding-top: 40%: ;
+        padding-top: 40%;
     }
     .intro-body{
       padding-top: 50px;
@@ -209,7 +210,6 @@ a:focus {
     color: #fff;
     background: 0 0;
     -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
     transition: background .3s ease-in-out;
 }
 
@@ -255,23 +255,6 @@ a:focus {
     }
 }
 
-@-moz-keyframes pulse {
-    0% {
-        -moz-transform: scale(1);
-        transform: scale(1);
-    }
-
-    50% {
-        -moz-transform: scale(1.2);
-        transform: scale(1.2);
-    }
-
-    100% {
-        -moz-transform: scale(1);
-        transform: scale(1);
-    }
-}
-
 #brief{
   background: url(../img/white_paperboard-bg.png);
   color: black;
@@ -288,7 +271,8 @@ a:focus {
 
 /* entire container, keeps perspective */
 .flip-container {
-	perspective: 1000;
+	-webkit-perspective: 1000;
+	        perspective: 1000;
   margin: 10px;
   background-color: rgb(65,61,160);
   margin-bottom: 20px;
@@ -297,7 +281,6 @@ a:focus {
 	/* flip the pane when hovered */
 	.flip-container:hover .flipper, .flip-container.hover .flipper {
     -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
 		transform: rotateY(180deg);
 	}
 
@@ -309,16 +292,15 @@ a:focus {
 /* flip speed goes here */
 .flipper {
   -webkit-transition: 0.6s;
-     -moz-transition: 0.6s;
 	transition: 0.6s;
-	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	        transform-style: preserve-3d;
 	position: relative;
 }
 
 /* hide back of pane during swap */
 .front, .back {
   -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
 	backface-visibility: hidden;
 
 	position: absolute;
@@ -333,14 +315,12 @@ a:focus {
 	z-index: 2;
 	/* for firefox 31 */
 	-webkit-transform: rotateY(0deg);
-      -ms-transform: rotateY(0deg);
           transform: rotateY(0deg);
 }
 
 /* back, initially hidden pane */
 .back {
   -webkit-transform: rotateY(180deg);
-      -ms-transform: rotateY(180deg);
 	         transform: rotateY(180deg);
 }
 
@@ -371,7 +351,6 @@ a:focus {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
     -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
 
@@ -436,6 +415,10 @@ footer p {
     text-shadow: none;
     background: #fcfcfc;
     background: rgba(255,255,255,.2);
+}
+
+img::-moz-selection {
+    background: 0 0;
 }
 
 img::selection {
